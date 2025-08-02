@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+  backend:
+    container_name: email-backend
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    depends_on:
+      - elasticsearch
+      - categoriser
+    environment:
+      - NODE_ENV=development
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - CATEGORISER_URL=http://categoriser:5000
+
+  categoriser:
+    container_name: email-categoriser
+    build:
+      context: ./categoriser
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./categoriser:/app
+    working_dir: /app
+
+volumes:
+  esdata:

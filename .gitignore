@@ -1,0 +1,36 @@
+# Root level
+.env
+.env.* 
+.DS_Store
+*.log
+*.local
+
+# Node.js - backend and frontend
+backend/node_modules/
+frontend/node_modules/
+**/node_modules/
+
+# Build outputs
+frontend/.next/
+frontend/out/
+backend/dist/
+coverage/
+
+# Python - categoriser
+categoriser/__pycache__/
+categoriser/.pytest_cache/
+categoriser/.venv/
+categoriser/venv/
+categoriser/*.pyc
+categoriser/*.pyo
+categoriser/*.pyd
+
+# Jupyter Notebook
+categoriser/.ipynb_checkpoints/
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# OS files
+Thumbs.db
