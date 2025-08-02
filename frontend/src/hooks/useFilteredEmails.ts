@@ -24,7 +24,7 @@ export const useFilteredEmails = () => {
         const emails = await searchEmails(filters);
         dispatch(setEmails(emails));
       } catch (error) {
-        console.error("Failed to fetch emails", error);
+        // console.error("Failed to fetch emails", error);
       }
     };
 

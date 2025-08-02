@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 
 with open("models/email_categoriser.pkl", "rb") as f:
@@ -7,6 +8,7 @@ with open("models/tfidf_vectorizer.pkl", "rb") as f:
     tfidf_vectorizer = pickle.load(f)
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:3000"])
 
 @app.route("/predict", methods=["POST"])
 def predict():

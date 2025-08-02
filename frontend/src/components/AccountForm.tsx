@@ -74,7 +74,7 @@ function AccountForm({ index, canRemove }: AccountFormProps) {
             type="text"
             value={account.host}
             onChange={(e) => updateAccount({ host: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+            className= " text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-lg"
             placeholder="imap.gmail.com"
           />
         </div>
@@ -86,7 +86,7 @@ function AccountForm({ index, canRemove }: AccountFormProps) {
             type="number"
             value={account.port}
             onChange={(e) => updateAccount({ port: parseInt(e.target.value) })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+            className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-lg"
           />
         </div>
 
@@ -97,7 +97,7 @@ function AccountForm({ index, canRemove }: AccountFormProps) {
             type="text"
             value={account.user}
             onChange={(e) => updateAccount({ user: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+            className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-lg"
             placeholder="your.email@domain.com"
           />
         </div>
@@ -109,7 +109,7 @@ function AccountForm({ index, canRemove }: AccountFormProps) {
             type="password"
             value={account.password}
             onChange={(e) => updateAccount({ password: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+            className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-lg"
           />
         </div>
 
@@ -120,7 +120,7 @@ function AccountForm({ index, canRemove }: AccountFormProps) {
             id={`tls-${index}`}
             checked={account.tls}
             onChange={(e) => updateAccount({ tls: e.target.checked })}
-            className="mr-2 rounded border-gray-300 text-blue-600"
+            className=" mr-2 rounded border-gray-300 text-blue-600"
           />
           <label htmlFor={`tls-${index}`} className="text-sm font-medium text-gray-700">
             Enable TLS

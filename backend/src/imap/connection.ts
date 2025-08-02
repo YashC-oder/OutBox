@@ -31,7 +31,7 @@ export async function startConnectionForAccount(acc: Account) {
 
 async function handleEmail(accountUser: string, source: Buffer | string) {
   const parsed = await simpleParser(source);
-  const category: EmailCategory = classifyEmail(parsed.text || '');
+  const category: EmailCategory = await classifyEmail(parsed.text || '');
   
   const email: Email = {
     from: parsed.from?.text || '',
